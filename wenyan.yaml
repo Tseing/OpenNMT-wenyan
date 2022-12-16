@@ -1,0 +1,37 @@
+# wenyan.yaml
+
+## Where the samples will be written
+save_data: run/wenyan
+## Where the vocab(s) will be written
+src_vocab: run/wenyan.vocab.src
+tgt_vocab: run/wenyan.vocab.tgt
+src_vocab_size: 200000
+tgt_vocab_size: 200000
+overwrite: True
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: dataset/src-train.txt
+        path_tgt: dataset/tgt-train.txt
+    valid:
+        path_src: dataset/src-val.txt
+        path_tgt: dataset/tgt-val.txt
+
+# Train on a single GPU
+world_size: 1
+gpu_ranks: [0]
+queue_size: 100
+bucket_size: 2048
+
+# Train batch
+batch_size: 32
+# Validation batch
+valid_batch_size: 16
+
+# Where to save the checkpoints
+save_model: run/model
+save_checkpoint_steps: 10000
+train_steps: 1000000
+valid_steps: 10000
+
